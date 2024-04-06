@@ -1,2 +1,1 @@
 ### Stock Management System
-### Stock
