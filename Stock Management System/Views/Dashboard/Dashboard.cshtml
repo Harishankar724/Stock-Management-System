@@ -1,0 +1,110 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+<style>
+    body {
+        background-size: cover;
+        background-position: center;
+        color: black;
+        background-color: white;
+        font-weight: 500;
+    }
+
+    .btn {
+        background-color: #535380;
+        color: white;
+        border-radius: 10%;
+    }
+
+        .btn:hover {
+            color: white;
+            background-color: blue;
+        }
+
+    .box {
+        background-color: #fbfaf2;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .box-title {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+    }
+
+    .box-content {
+        font-size: 1.2em;
+    }
+</style>
+
+<br />
+<br />
+<br />
+<br />
+@* Inventory Summary *@
+
+<div class="box">
+    <div class="box-title">Inventory Summary</div>
+    <div class="box-content">
+        <div class="container px-4 text-center">
+            <div class="row gx-5">
+                <div class="col">
+                    <div class="p-3">Total Suppliers Count: @Model.Suppliers.Count</div>
+                </div>
+                <div class="col">
+                    <div class="p-3">Minimum Item: **</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+@* Product Activity *@
+<div class="box">
+    <div class="box-title">Product Activity</div>
+    <div class="box-content">
+        <div class="container text-center">
+            <div class="row g-2">
+                <div class="col-6">
+                    <div class="p-3">Total Sold product: @Model.TotalSoldProducts</div>
+                </div>
+                <div class="col-6">
+                    <div class="p-3">Total products: @Model.TotalProducts</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+@* Product Details *@
+<div class="box">
+    <div class="box-title">Product Details</div>
+    <div class="box-content">
+        <div class="container text-center">
+            <div class="row g-2">
+                <div class="col-6">
+                    <div class="p-3">Total number of products: **</div>
+                </div>
+                <div class="col-6">
+                    <div class="p-3">Highest product in stock: @Model.MaxItemsViewItem.Product </div>
+                    <div class="p-3">Total Items: @Model.MaxItemsViewItem.Item</div>
+
+                </div>
+                <div class="col-6">
+                    <div class="p-3">Best Seller: </div>
+                </div>
+                <div class="col-6">
+                    <div class="p-3">Best selling product:  @Model.MaxTotalSoldItem.Product_Name And  Price: @Model.MaxTotalSoldItem.Total</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Stock_Management_System.Models.SellItems>
+
+
+@{
+    ViewData["Title"] = "SoldData";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<h2 class="text-center">SoldData</h2>
+<a class="btn btn-success" asp-action="Purchase" asp-controller="ProductManagement">Go Back</a>
+<h1></h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Customer Name</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Items</th>
+            <th>Total Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sellItem in Model)
+        {
+            <tr>
+                <td>@sellItem.Id</td>
+                <td>@sellItem.Customer_Name</td>
+                <td>@sellItem.Phone_Number</td>
+                <td>@sellItem.Address</td>
+                <td>@sellItem.Product_Name</td>
+                <td>@sellItem.Product_Price</td>
+                <td>@sellItem.Items</td>
+                <td>@sellItem.Total</td>
+                <td><a class="btn btn-danger" asp-action="Remove" asp-controller="OrderManagement" asp-route-id="@sellItem.Id"> Remove</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

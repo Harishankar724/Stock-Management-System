@@ -1,0 +1,84 @@
+﻿@using Stock_Management_System.ViewModels
+@model LoginViewModels
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<div class="container-fluid p-3 mb-2 bg-light text-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="https://www.pngitem.com/pimgs/m/264-2640106_inventory-management-system-logo-hd-png-download.png"
+                     class="img-thumbnail rounded mx-auto d-block" alt="logo" width="25%" height="25%">
+                <div class="text-black-50 text-center fw-bold fs-4">Welcome Back</div>
+                <div class="text-primary text-center fw-bold fs-2" style="--bs-text-opacity: .75;">
+                    Good To See You
+                    Again!
+                </div>
+                <form asp-action="Login" method="post">
+                    <div class="mb-3">
+                        <label asp-for="Username" class="form-label"></label>
+                        <input asp-for="Username" class="form-control" placeholder="Username">
+                        <div asp-validation-for="Username" class="text-danger"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label"></label>
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Password">
+                        <div asp-validation-for="Password" class="text-danger"></div>
+                        <a asp-action="ForgotPassword" class="link-primary">Forgot Password?</a>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input asp-for="RememberMe" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Remember me!</label>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button type="submit" class="btn btn-custom-class text-center" style="background-color: #000080; color:white">Sign in</button>
+                    </div>
+                </form>
+                <br>
+                <p class="fs-4 fw-bold text-center">OR</p>
+                <div class=" text-center">
+
+                    <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl">
+                        <button type="submit" class="btn fs-5" role="button" style="color: #000080">
+                            <img src="https://cdn.icon-icons.com/icons2/836/PNG/512/Google_icon-icons.com_66793.png"
+                                 class="object-fit-fill rounded float-start" alt="google_logo" width="30" height="30">
+                            &nbsp Continue With Google &nbsp &nbsp
+                        </button>
+                        <input type="hidden" name="provider" value="Google" /> <!-- Assuming the provider name is 'Google' -->
+                    </form>
+
+                </div><br>
+                <p class="text-center fw-light fs-5">
+                    Don't Have An Account?
+                    <a asp-action="Register" class="btn btn-success text-decoration-none fw-bold fs-5"
+                       role="button"> Sign Up</a> Now!
+                </p>
+                <p class="text-center fw-lighter fst-italic fs-6">
+                    (It takes less than a minute)
+                </p>
+            </div>
+            <div class="col">
+                <img src="https://globaledgeme.com/wp-content/uploads/2020/04/Inventory-Management-01.png"
+                     class="img-fluid" alt="bg_pic">
+            </div>
+        </div>
+
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
